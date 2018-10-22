@@ -8,6 +8,7 @@
     "docs:gulp": "gulpdoc ./gulp/*.js",
     "lint": "eslint cli.js gulpfile.js gulp src",
     "start": "gulp serve",
+    "test": "./node_modules/karma/bin/karma start",
     "start:dist": "gulp serve:dist",
     "update:bower": "ncu -a -m bower --packageFile bower.json",
     "update:dev": "ncu -a --packageFile package.json"
