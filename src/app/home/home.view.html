@@ -1,18 +1,32 @@
-<h1>Angular Gulp Boilerplate</h1>
+<h1>Treasy Dev Warriors Challenge</h1>
 
 <h2>{{ 'home.greeting' | translate }}</h2>
-
-<p>
-    {{ 'home.details' | translate }}
-    <a href="https://github.com/1oginov/Angular-Gulp-Boilerplate"
-       target="_blank">https://github.com/1oginov/Angular-Gulp-Boilerplate</a>
-</p>
-
-<p>
-    <button ng-click="vm.switchLanguage('en')">In English</button>
-    <button ng-click="vm.switchLanguage('ru')">По-русски</button>
-</p>
-
-<p>
-    <button ng-click="vm.showSampleConstant()">{{ 'home.button' | translate }}</button>
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card fluid">
+                <div class="section">
+                    <h3>Produtos</h3>
+                </div>
+                <div class="section">
+                    <div class="button-group">
+                        <button>Delete</button>
+                        <button>Edit</button>
+                        <button class="primary">Add</button>
+                    </div>
+                    <div class="input-group fluid">
+                        <input type="text" name="filter" id="filter" class="fluid" placeholder="Type the code or description of a product or category">
+                    </div>
+                </div>
+                <div class="section">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="card fluid">
+                Content
+            </div>
+        </div>
+    </div>
+</div>
