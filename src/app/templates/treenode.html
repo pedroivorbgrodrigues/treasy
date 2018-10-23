@@ -1,4 +1,4 @@
-<div class="tree-node">
+<div class="tree-node" ng-show="node.filter(vm.nodeFilter)">
     {{node.description}}
     <div class="node-children" ng-include src="'app/templates/treenode.html'" class="children" ng-repeat="node in node.children"></div>
 </div>
