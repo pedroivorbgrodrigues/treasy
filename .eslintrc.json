@@ -6,5 +6,9 @@
   "extends": [
     "eslint:recommended",
     "angular"
-  ]
+  ],
+  "rules": {
+    "angular/no-service-method": 0,
+    "angular/definedundefined": 0
+  }
 }

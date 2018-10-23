@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular.module('app').component('home', {
@@ -8,23 +8,39 @@
   });
 
   /** @ngInject */
-  function HomeController($log, $rootScope, $translate, SAMPLE_CONSTANT) {
+  function HomeController($log, $rootScope, $translate, TreeNodeFactory) {
     const vm = this;
+    const TreeNode = TreeNodeFactory
 
     // Scope variables go here:
-    // vm.variable = 'value';
+    vm.productTree = []
 
-    vm.showSampleConstant = showSampleConstant;
     vm.switchLanguage = switchLanguage;
 
     activate();
 
-    function activate() {
-      $log.debug('home activated');
+    function initalizeTree() {
+      let rootNode = new TreeNode('confec', 'Campos Confecções')
+        .addChild(new TreeNode('berma', 'Bermudas'))
+      let subNode1 = new TreeNode('calca', 'Calças')
+        .addChild(new TreeNode('calca01', 'Sarja (m)'))
+        .addChild(new TreeNode('calca02', 'Social'))
+      rootNode.addChild(subNode1)
+      let subNode2 = new TreeNode('camisas', 'Camisas')
+        .addChild(new TreeNode('camisa01', 'Esporte'))
+        .addChild(new TreeNode('camisa02', 'Gola Polo'))
+      let subNode2Child = new TreeNode('camisa03', 'Grife')
+        .addChild(new TreeNode('grife01', 'Dudalina'))
+      subNode2.addChild(subNode2Child)
+      subNode2.addChild(new TreeNode('camisa04', 'Social'))
+      rootNode.addChild(subNode2)
+      rootNode.addChild(new TreeNode('terno', 'Terno'))
+      vm.productTree = [rootNode]
     }
 
-    function showSampleConstant() {
-      alert(SAMPLE_CONSTANT);
+    function activate() {
+      $log.debug('home activated');
+      initalizeTree()
     }
 
     function switchLanguage(language) {

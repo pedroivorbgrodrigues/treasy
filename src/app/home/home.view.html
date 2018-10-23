@@ -18,8 +18,10 @@
                         <input type="text" name="filter" id="filter" class="fluid" placeholder="Type the code or description of a product or category">
                     </div>
                 </div>
+
                 <div class="section">
-                    
+                    <div class="root-node" ng-repeat="node in vm.productTree" ng-include="'app/templates/treenode.html'">
+                    </div>
                 </div>
             </div>
         </div>
