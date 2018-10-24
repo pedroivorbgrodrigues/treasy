@@ -35,8 +35,8 @@ TreeNode.prototype.filter = function(query) {
     return this.__filter(query.toLowerCase(), this)
 }
 
-TreeNode.prototype.setExpanded = function(expanded) {
-    this.expanded = expanded
+TreeNode.prototype.toogle = function() {
+    this.expanded = !this.expanded
 }
 
 function TreeNodeFactory() {

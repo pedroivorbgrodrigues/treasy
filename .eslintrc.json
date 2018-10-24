@@ -9,6 +9,7 @@
   ],
   "rules": {
     "angular/no-service-method": 0,
-    "angular/definedundefined": 0
+    "angular/definedundefined": 0,
+    "angular/document-service": 0
   }
 }
