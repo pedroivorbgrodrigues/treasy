@@ -35,8 +35,9 @@ TreeNode.prototype.filter = function(query) {
     return this.__filter(query.toLowerCase(), this)
 }
 
-TreeNode.prototype.toogle = function() {
+TreeNode.prototype.toggle = function() {
     this.expanded = !this.expanded
+    this.children.forEach(node => node.toggle())
 }
 
 function TreeNodeFactory() {

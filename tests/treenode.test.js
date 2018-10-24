@@ -32,9 +32,9 @@ const shouldBeExpandable = () => {
     expect(rootNode.expanded).toBeDefined()
     expect(rootNode.expanded).toBeFalsy()
     expect(rootNode.children[0].expanded).toBeFalsy()
-    rootNode.toogle()
+    rootNode.toggle()
     expect(rootNode.expanded).toBeTruthy()
-    expect(rootNode.children[0].expanded).toBeFalsy()
+    expect(rootNode.children[0].expanded).toBeTruthy()
 
 }
 
