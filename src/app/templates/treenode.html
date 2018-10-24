@@ -1,4 +1,5 @@
-<div class="tree-node" ng-show="node.filter(vm.nodeFilter)">
-    {{node.description}}
+<div class="tree-node" ng-show="node.filter(vm.nodeFilter)" ng-class="node.expanded ? 'expanded' : 'collapsed'">
+    <span class="node-toggle" ng-if="node.children.length > 0"></span>
+    <span ng-click="node.toggle()" class="node-link tooltip right" aria-label="{{node.id}} - {{node.description}} {{node.aditionalInfo}}">{{node.description}}</span>
     <div class="node-children" ng-include src="'app/templates/treenode.html'" class="children" ng-repeat="node in node.children"></div>
 </div>

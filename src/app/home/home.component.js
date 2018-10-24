@@ -8,12 +8,13 @@
   });
 
   /** @ngInject */
-  function HomeController($log, $rootScope, $translate, TreeNodeFactory) {
+  function HomeController($log, $rootScope, $translate, $timeout, TreeNodeFactory) {
     const vm = this;
     const TreeNode = TreeNodeFactory
 
     // Scope variables go here:
     vm.productTree = []
+    vm.nodeFilter = ''
 
     vm.switchLanguage = switchLanguage;
 

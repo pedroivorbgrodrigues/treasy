@@ -1,0 +1,19 @@
+.tooltip.right {
+    &:before {
+        bottom: 20%;
+        left: 100%;
+        border-right-color: #212121;
+        border-top-color: rgba(0,0,0,0);
+        transition: opacity 1s;
+    }
+
+    &:after {
+        left: 100%;
+        margin-bottom: 0;
+        bottom: 50%;
+        transform: translate(calc(2 * var(--universal-margin)),calc(2 * var(--universal-margin)));
+        transition: opacity 1s;
+    }
+
+
+}
