@@ -12,7 +12,7 @@ function TreeNode(id, description, aditionalInfo) {
     this.id = id
     this.description = description
     this.children = []
-    this.expanded = false;
+    this.expanded = true;
     if (aditionalInfo) {
         this.aditionalInfo = aditionalInfo
     }
@@ -37,8 +37,14 @@ TreeNode.prototype.filter = function(query) {
 
 TreeNode.prototype.toggle = function() {
     this.expanded = !this.expanded
-    this.children.forEach(node => node.toggle())
 }
+
+TreeNode.prototype.expandChildren = function(expanded) {
+    this.expanded = expanded == null || expanded == undefined ? !this.expanded : expanded
+    this.children.forEach(node => node.expandChildren(expanded))
+}
+
+
 
 function TreeNodeFactory() {
     return TreeNode
