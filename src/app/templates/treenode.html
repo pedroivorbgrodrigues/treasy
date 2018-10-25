@@ -1,7 +1,7 @@
 <div class="tree-node" ng-show="node.filter(vm.nodeFilter)" ng-class="node.expanded ? 'expanded' :'collapsed'">
     <div class="node-content" ng-class="{'selected': vm.isNodeSelected(node)}">
         <div ng-click="node.toggle()" class="node-toggle" ng-if="node.children.length > 0"></div>
-        <div ng-click="vm.selectedNode = node.id" class="node-link tooltip right" aria-label="{{node.id}} - {{node.description}} {{node.aditionalInfo}}">
+        <div ng-click="vm.selectedNode = node" class="node-link tooltip right" aria-label="{{node.id}} - {{node.description}} {{node.aditionalInfo}}">
             {{node.description}}
         </div>
     </div>

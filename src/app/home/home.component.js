@@ -14,11 +14,13 @@
 
     // Scope variables go here:
     vm.productTree = []
-    vm.selectedNode = ''
+    vm.selectedNode = null
     vm.nodeFilter = ''
 
     vm.switchLanguage = switchLanguage
     vm.isNodeSelected = isNodeSelected
+    vm.expandChildren = expandChildren
+    vm.collapseChildren = collapseChildren
 
     activate();
 
@@ -39,11 +41,11 @@
       rootNode.addChild(subNode2)
       rootNode.addChild(new TreeNode('terno', 'Terno'))
       vm.productTree = [rootNode]
-      vm.selectedNode = rootNode.id
+      vm.selectedNode = rootNode
     }
 
     function isNodeSelected(node) {
-      return vm.selectedNode === node.id
+      return vm.selectedNode === node
     }
 
     function activate() {
@@ -53,6 +55,14 @@
 
     function switchLanguage(language) {
       $translate.use(language);
+    }
+
+    function expandChildren() {
+      vm.selectedNode.expandChildren(true)
+    }
+
+    function collapseChildren() {
+      vm.selectedNode.expandChildren(false)
     }
 
   }
