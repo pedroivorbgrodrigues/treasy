@@ -8,14 +8,21 @@
                 <div class="section">
                     <h3>Produtos</h3>
                 </div>
-                <div class="section">
-                    <div class="button-group">
-                        <button>Delete</button>
-                        <button>Edit</button>
-                        <button class="primary">Add</button>
+                <div class="section no-padding">
+                    <div class="row">
+                        <div class="col-sm-6 icon-group left">
+                                <i class="material-icons" ng-click="vm.addChildToNode()">add</i>
+                                <i class="material-icons" ng-click="vm.editCurrentNode()">edit</i>
+                                <i class="material-icons" ng-click="vm.deleteCurrentNode()">delete</i>
+                        </div>
+                        <div class="col-sm-6 icon-group right">
+                                <i class="material-icons" ng-click="vm.expandChildren()">expand_less</i>
+                                <i class="material-icons" ng-click="vm.collapseChildren()">expand_more</i>
+                        </div>
                     </div>
-                    <div class="input-group fluid">
-                        <input type="text" name="nodeFilter" id="nodeFilter" ng-model="vm.nodeFilter" class="fluid" placeholder="Type the code or description of a product or category">
+                    <div class="input-group fluid no-margin">
+                        <input type="text" name="nodeFilter" id="nodeFilter" ng-model="vm.nodeFilter" class="fluid"
+                            placeholder="Type the code or description of a product or category">
                     </div>
                 </div>
 

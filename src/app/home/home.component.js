@@ -39,6 +39,7 @@
       rootNode.addChild(subNode2)
       rootNode.addChild(new TreeNode('terno', 'Terno'))
       vm.productTree = [rootNode]
+      vm.selectedNode = rootNode.id
     }
 
     function isNodeSelected(node) {

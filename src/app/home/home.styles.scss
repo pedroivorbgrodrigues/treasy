@@ -2,3 +2,15 @@ home {
   display: block;
   text-align: center;
 }
+
+.icon-group {
+  padding: var(--universal-padding);
+}
+
+.icon-group.left {
+  text-align: left;
+}
+
+.icon-group.right {
+  text-align: right;
+}

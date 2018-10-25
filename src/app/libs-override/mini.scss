@@ -15,7 +15,20 @@
         transition: opacity 5s;
     }
 }
+.card>.section.no-padding {
+    padding: 0;
+}
 
-.no-padding {
-    padding: 0
+.input-group.no-margin>input {
+    margin: 0;
+}
+
+.material-icons {
+    cursor: pointer;
+    opacity: 0.5;
+    vertical-align: middle;
+    &:hover {
+        opacity: 1;
+        transform: scale(1.2);
+    }
 }
