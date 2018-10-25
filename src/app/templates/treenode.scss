@@ -1,70 +1,66 @@
 .root-node {
-    text-align: left;
-}
-
-.node-children>.tree-node {
-    margin-left: 20px;
+    text-align: left; // margin-left: 20px;
 }
 
 .node-link {
     cursor: pointer;
 }
 
-// https://metroui.org.ua/treeview.html
 .tree-node {
-    position: relative;
-    .node-link {
-        position: relative;
-    }
-    .node-toggle {
-        position: relative;
-        cursor: pointer;
-        padding-right: 0 !important;
+    line-height: 1;
+    .node-content {
         &:before {
-            display: block;
+            box-sizing: border-box;
+            content: '';
             position: absolute;
-            vertical-align: middle;
-            color: transparent;
-            font-size: 0;
-            content: "";
-            height: 0.3125rem;
-            width: 0.3125rem;
-            background-color: transparent;
-            border-left: 1px solid;
-            border-bottom: 1px solid;
-            border-color: #1d1d1d;
-            top: 50%;
-            left: 100%;
-            margin-left: -1rem;
-            margin-top: -0.1625rem;
-            z-index: 2;
-            transform: rotate(-45deg);
-            transition: all 0.15s ease-in-out;
-            transform-origin: center center 1px;
-        }
-    }
-    .node-toggle {
-        position: absolute;
-        left: 0;
-        top: 0;
-        transform: translateX(-100%);
-        width: 16px;
-        height: 16px;
-        &:before {
-            transform: rotate(-135deg);
-        }
-    }
-    .collapsed {
-        .tree-node {
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.3s ease;
+            left: 0;
+            right: 0;
+            height: 1.5em;
         }
     }
 }
 
-.tree-node.expanded>.node-toggle {
+.tree-node>.node-children {
+    padding-left: 1.5em;
+}
+
+.tree-node.expanded {
+    .node-toggle {
+        @include css-triangle($color: black, $direction: down, $position: relative);
+        cursor: pointer;
+        margin-right: 0.5em;
+        display: inline-block;
+    }
+}
+
+.tree-node.collapsed {
+    .node-toggle {
+        @include css-triangle($color: black, $direction: right, $position: relative);
+        margin-right: 0.5em;
+        cursor: pointer;
+        display: inline-block;
+    }
+}
+.node-content:hover {
     &:before {
-        transform: rotate(-45deg);
+        background: rgba(43, 129, 137, 0.3)
+    }
+}
+
+.node-content.selected {
+    &:before {
+        background: rgba(13, 66, 87, 0.3)
+    }
+}
+
+
+.tree-node.collapsed>.node-children {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    .node-content {
+        &:before {
+            height: 0;
+        }
     }
 }

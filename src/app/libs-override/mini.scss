@@ -4,7 +4,7 @@
         left: 100%;
         border-right-color: #212121;
         border-top-color: rgba(0,0,0,0);
-        transition: opacity 1s;
+        transition: opacity 5s;
     }
 
     &:after {
@@ -12,8 +12,10 @@
         margin-bottom: 0;
         bottom: 50%;
         transform: translate(calc(2 * var(--universal-margin)),calc(2 * var(--universal-margin)));
-        transition: opacity 1s;
+        transition: opacity 5s;
     }
+}
 
-
+.no-padding {
+    padding: 0
 }
