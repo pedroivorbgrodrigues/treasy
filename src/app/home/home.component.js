@@ -21,6 +21,7 @@
     vm.isNodeSelected = isNodeSelected
     vm.expandChildren = expandChildren
     vm.collapseChildren = collapseChildren
+    vm.deleteCurrentNode = deleteCurrentNode
 
     activate();
 
@@ -63,6 +64,15 @@
 
     function collapseChildren() {
       vm.selectedNode.expandChildren(false)
+    }
+
+    function deleteCurrentNode() {
+      if(vm.selectedNode.isRootNode()) {
+        let selectedNodeIndex = vm.productTree.findIndex(node => node === vm.selectedNode)
+        vm.productTree.splice(selectedNodeIndex,1)
+      }
+      vm.selectedNode.selfDelete()
+      vm.selectedNode = vm.productTree[0] || []
     }
 
   }

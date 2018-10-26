@@ -23,6 +23,7 @@ TreeNode.prototype.addChild = function(childNode) {
     if (childNode == null || !(childNode instanceof TreeNode)) {
         throw new Error('Invalid parameter for function addChild')
     }
+    childNode.parent = this
     this.children.push(childNode)
     return this
 }
@@ -44,7 +45,19 @@ TreeNode.prototype.expandChildren = function(expanded) {
     this.children.forEach(node => node.expandChildren(expanded))
 }
 
+TreeNode.prototype.isRootNode = function() {
+    return this.parent == null || this.parent == undefined
+}
 
+TreeNode.prototype.selfDelete = function() {
+    if(this.parent) {
+        let thisNodeIndex = this.parent.children.findIndex(node => node === this)
+        this.parent.children.splice(thisNodeIndex, 1)
+        this.parent = null
+    }
+    this.children.forEach(child => child.parent == null)
+    this.children = null
+}
 
 function TreeNodeFactory() {
     return TreeNode

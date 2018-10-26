@@ -11,9 +11,9 @@
                 <div class="section no-padding">
                     <div class="row">
                         <div class="col-sm-6 icon-group left">
-                                <i class="material-icons" ng-click="vm.addChildToNode()">add</i>
-                                <i class="material-icons" ng-click="vm.editCurrentNode()">edit</i>
-                                <i class="material-icons" ng-click="vm.deleteCurrentNode()">delete</i>
+                            <i class="material-icons" ng-click="vm.addChildToNode()">add</i>
+                            <i class="material-icons" ng-click="vm.editCurrentNode()">edit</i>
+                            <i class="material-icons" ng-click="vm.deleteCurrentNode()">delete</i>
                         </div>
                         <div class="col-sm-6 icon-group right">
                             <i class="material-icons" ng-click="vm.expandChildren()">expand_more</i>
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="section no-padding">
-                    <div class="root-node" ng-repeat="node in vm.productTree" ng-include="'app/templates/treenode.html'">
+                    <div class="root-node" ng-repeat="node in vm.productTree" ng-include="'app/treenode/treenode.html'">
                     </div>
                 </div>
             </div>
@@ -36,6 +36,19 @@
             <div class="card fluid">
                 Content
             </div>
+        </div>
+    </div>
+</div>
+<div class="modal">
+    <div class="card">
+        <div class="header section">
+            <h3 class="modal-title">Criar novo item</h3>
+            <i class="material-icons modal-close">close</i>
+        </div>
+
+
+        <div class="section">
+            Conteudo
         </div>
     </div>
 </div>

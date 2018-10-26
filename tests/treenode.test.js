@@ -80,6 +80,13 @@ const shouldBeFilterable = () => {
     expect(sample.subNode1.filter('duda')).toBeFalsy()
 }
 
+const whenDeletedShouldRemoveItselfAndItsChildren = () => {
+    let sample = createSampleStructure()
+    sample.subNode2.selfDelete()
+    expect(sample.rootNode.filter(sample.subNode2Child.id)).toBeFalsy()
+    expect(sample.rootNode.filter(sample.subNode2.id)).toBeFalsy()
+}
+
 const treeNodeStructure = () => {
     it('Should hold all properties described in the requirements', givenAllPropsItShouldHoldAllOfThem)
     it('Should be able to hold only required props', givenOnlyIdAndDescriptionItShouldHoldThem)
@@ -88,6 +95,7 @@ const treeNodeStructure = () => {
     it('Given sample tree when calling toggle for parent should not toggle the children', shouldBeExpandable)
     it('Given sample tree when calling expandChildren for parent should set all children to the new parent state', shouldExpandAllAtOnce)
     it('Should be filterable', shouldBeFilterable)
+    it('Should remove the node form its parent and itself from its children', whenDeletedShouldRemoveItselfAndItsChildren)
 }
 
 describe("Tree Node structure", treeNodeStructure)

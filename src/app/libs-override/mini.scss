@@ -32,3 +32,23 @@
         transform: scale(1.2);
     }
 }
+
+.modal.hidden {
+    display: none;
+}
+
+.modal.shown {
+    display: block;
+}
+
+.header {
+    .modal-title {
+        display: inline;
+    }
+    .modal-close {
+        float: right;
+    }
+    &:after {
+        clear: both;
+    }
+}
