@@ -36,7 +36,7 @@
 
 <div id="nodeFormModal" class="modal">
     <div class="modal-content">
-        <h3 class="modal-title">{{ 'home.newProductNodeTitle' | translate }}</h3>
+        <h3 class="modal-title">{{ (vm.nodeFormAction == 'edit' ? 'home.editProductNodeTitle' : 'home.newProductNodeTitle')  | translate }}</h3>
         <div class="row">
             <form class="col s12">
                 <div class="row">
@@ -67,6 +67,6 @@
     </div>
     <div class="modal-footer">
         <button class="waves-effect waves-light btn" ng-click="vm.submitNodeFormModal()">{{
-            'home.newProductButtonCreate' | translate }}</button>
+            (vm.nodeFormAction == 'edit' ? 'home.editProductButton' : 'home.newProductButtonCreate') | translate }}</button>
     </div>
 </div>
