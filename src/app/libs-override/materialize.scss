@@ -1,0 +1,47 @@
+.material-icons {
+    cursor: pointer;
+    opacity: 0.5;
+    vertical-align: middle;
+    &:hover {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.material-icons.medium {
+    font-size: 1.5em;
+}
+
+.card {
+    .card-content {
+        padding: 1em;
+    }
+    .card-action {
+        padding: 0;
+    }
+}
+
+.input-field {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal {
+    .modal-content {
+        padding-bottom: 0.5rem;
+    }
+    
+    .row {
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+.toast {
+    height: 1.5em;
+    opacity: 0.7;
+}
+
+.toast.error {
+    background-color: red;
+}
