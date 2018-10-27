@@ -3,22 +3,19 @@
     padding-left: var(--universal-margin);
 }
 
-// .node-link {
-//     cursor: pointer;
-// }
+.node-link {
+    display: inline-block;
+    &:hover {
+        text-decoration: underline;
+    }
+}
 
 .tree-node {
     line-height: 1;
     .node-content {
         cursor: pointer;
-        &:before {
-            box-sizing: border-box;
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 1.5em;
-        }
+        margin: 0.5em;
+        
     }
 }
 
@@ -43,21 +40,9 @@
         display: inline-block;
     }
 }
-.node-content:hover {
-    &:before {
-        // background: rgba(43, 129, 137, 0.3)
-        border: 1px solid var(--card-border-color);
-        // box-shadow: var(--hover-box-shadow);
-    }
-}
 
 .node-content.selected {
     font-weight: bold;
-    // &:before {
-    //     background: rgba(13, 66, 87, 0.3);
-    //     box-shadow: var(--hover-box-shadow);        
-    //     border: 1px solid var(--card-border-color);
-    // }
 }
 
 

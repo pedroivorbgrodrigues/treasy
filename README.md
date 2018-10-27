@@ -4,16 +4,18 @@ Projeto iniciado a partir do repo: [angular-gulp-boilerplate](https://github.com
 
 Adicionado via bower:
 
-*angular-animate
-*mini.css
-*popper.js
-*Fonte Material Icons (index.html)
+* angular-animate
+* mini.css
+* popper.js
+* Fonte Material Icons (index.html)
 
 Adicionado para desenvolvimento (tdd) via npm:
 
-*angular-mocks (não cheguei a usar)
-*karma, karma-jasmine, karma-chrome-launche
-*jasmine-core
+* angular-mocks (não cheguei a usar)
+* karma, karma-jasmine, karma-chrome-launche
+* jasmine-core
+
+[Link para a aplicação](https://pedroivorbgrodrigues.github.io/)
 
 # Requisitos do desafio
 
@@ -91,6 +93,27 @@ gulp serve
 
 Your default browser will be launched at `http://localhost:3000` serving project. See other Gulp tasks and npm scripts
 you can use below.
+
+### Test
+
+Execute npm test script if on linux
+
+```sh
+npm run test
+```
+
+If on windows install karma globally first
+
+```sh
+npm install -g karma
+```
+
+Then run karma start at the project folder
+
+```sh
+karma start
+```
+
 
 
 ## Credits

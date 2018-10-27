@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  /*global Popper */
+  /*global M */
   angular.module('app').component('home', {
     controller: HomeController,
     controllerAs: 'vm',
@@ -12,11 +12,11 @@
     const vm = this;
     const TreeNode = TreeNodeFactory
 
-    // Scope variables go here:
     vm.productTree = []
     vm.selectedNode = null
     vm.nodeFilter = ''
     vm.nodeForm = {}
+    vm.modalInstace = null
 
     vm.switchLanguage = switchLanguage
     vm.selectNode = selectNode
@@ -54,8 +54,15 @@
       return vm.selectedNode === node
     }
     
+    function initToolTips() {
+      let elems = document.querySelectorAll('.tooltipped')
+      M.Tooltip.init(elems, {enterDelay: 300})
+    }
+    
     function activate() {
       initalizeTree()
+      $timeout(initToolTips, 0)
+      vm.modalInstance = M.Modal.init(document.querySelector('#nodeFormModal'));      
     }
 
     function switchLanguage(language) {
@@ -90,26 +97,11 @@
       vm.selectedNode = vm.productTree[0] || []
     }
 
-    function getNodeFormModalElement() {
-      return document.querySelector('#nodeFormModal')
-    }
-
-    function toastError(referenceElement, message) {
-      let toast = document.createElement('span')
-      toast.setAttribute('class', 'toast error')
-      toast.innerText = message
-      document.body.appendChild(toast)
-      new Popper(referenceElement, toast, {placement: 'right'})
-      $timeout(()=> {toast.parentNode.removeChild(toast)},1000)
-
-    }
-
     function openNodeFormModal($event, action) {
-      let reference = $event.currentTarget
       vm.nodeFormAction = action || 'create'
       if(vm.nodeFormAction == 'edit') {
         if(vm.selectedNode == null) {
-          $translate('home.editErrorNoNodeSelected').then(toastError.bind(this, reference))
+          $translate('home.editErrorNoNodeSelected').then((message) => M.toast({html: message, displayLength: 2000}))
           return
         }
         vm.nodeForm = {
@@ -118,19 +110,17 @@
           aditionalInfo: vm.selectedNode.aditionalInfo
         }
       }
-      
-      let modal = getNodeFormModalElement()
-      modal.classList.remove('hidden')
-      new Popper(reference, modal, {
-        placement: 'right'
-      })
+      vm.modalInstance.open()  
+      $timeout(updateForm,0);
+    }
+
+    function updateForm() {
+      M.updateTextFields()
+      M.textareaAutoResize(document.querySelector('#nodeaditionalinfo'))
     }
 
     function closeNodeFormModal() {
-      let modal = getNodeFormModalElement()
-      modal.classList.add('hidden')
-      //if its called even if form is not valid should clear the form so a create operation wouldnt be prefilled
-      //the create operation should keep values if form was invalid and the user closed it
+      vm.modalInstance.close()
       if(vm.nodeFormAction == 'edit') {
         vm.nodeForm = {}
       }
