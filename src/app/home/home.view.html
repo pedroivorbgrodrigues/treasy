@@ -1,18 +1,17 @@
 <h1>Treasy Dev Warriors Challenge</h1>
 
-<h2>{{ 'home.greeting' | translate }}</h2>
 <div class="container">
     <div class="row">
         <div class="col-sm-4">
             <div class="card fluid">
                 <div class="section">
-                    <h3>Produtos</h3>
+                    <h3>{{ 'home.productsTreeTitle' | translate }}</h3>
                 </div>
                 <div class="section no-padding">
                     <div class="row">
                         <div class="col-sm-6 icon-group left">
-                            <i class="material-icons" ng-click="vm.addChildToNode()">add</i>
-                            <i class="material-icons" ng-click="vm.editCurrentNode()">edit</i>
+                            <i class="material-icons" ng-click="vm.openNodeFormModal($event, 'create')">add</i>
+                            <i class="material-icons" ng-click="vm.openNodeFormModal($event, 'edit')">edit</i>
                             <i class="material-icons" ng-click="vm.deleteCurrentNode()">delete</i>
                         </div>
                         <div class="col-sm-6 icon-group right">
@@ -22,7 +21,7 @@
                     </div>
                     <div class="input-group fluid no-margin">
                         <input type="text" name="nodeFilter" id="nodeFilter" ng-model="vm.nodeFilter" class="fluid"
-                            placeholder="Type the code or description of a product or category">
+                            placeholder="{{ 'home.productsFilterInputPlaceholder' | translate }}">
                     </div>
                 </div>
 
@@ -39,16 +38,44 @@
         </div>
     </div>
 </div>
-<div class="modal">
-    <div class="card">
+<div id="nodeFormModal" class="modal hidden">
+    <!-- <div class="modal-arrow"></div> -->
+    <div class="card large">
         <div class="header section">
-            <h3 class="modal-title">Criar novo item</h3>
-            <i class="material-icons modal-close">close</i>
+            <h3 class="modal-title">{{ 'home.newProductNodeTitle' | translate }}</h3>
+            <i class="material-icons modal-close" ng-click="vm.closeNodeFormModal()">close</i>
         </div>
-
-
         <div class="section">
-            Conteudo
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="node-id">{{ 'home.newProductIdLabel' | translate }}</label>
+                </div>
+                <div class="col-sm">
+                    <input type="text" id="node-id" ng-model="vm.nodeForm.id" ng-disabled="vm.nodeFormAction == 'edit'" required placeholder="{{ 'home.newProductIdPlaceholder' | translate }}" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="node-description">{{ 'home.newProductDescriptionLabel' | translate }}</label>
+                </div>
+                <div class="col-sm">
+                    <input type="text" id="node-description" ng-model="vm.nodeForm.description" required placeholder="{{ 'home.newProductDescriptionPlaceholder' | translate }}" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="node-aditionalinfo">{{ 'home.newProductAditionalInfoLabel' | translate }}</label>
+                </div>
+                <div class="col-sm">
+                    <textarea id="node-aditionalinfo" ng-model="vm.nodeForm.aditionalInfo" rows="5" placeholder="{{ 'home.newProductAditionalInfoPlaceholder' | translate }}"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm" style="text-align: right">
+                    <button class="primary" ng-click="vm.submitNodeFormModal()">{{ 'home.newProductButtonCreate' | translate }}</button>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 </div>

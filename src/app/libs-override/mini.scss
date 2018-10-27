@@ -1,10 +1,14 @@
+.tooltip.no-border {
+    border: none;
+}
+
 .tooltip.right {
     &:before {
         bottom: 20%;
-        left: 100%;
+        left: 101%;
         border-right-color: #212121;
         border-top-color: rgba(0,0,0,0);
-        transition: opacity 5s;
+        transition: opacity 0.7s;
     }
 
     &:after {
@@ -12,7 +16,7 @@
         margin-bottom: 0;
         bottom: 50%;
         transform: translate(calc(2 * var(--universal-margin)),calc(2 * var(--universal-margin)));
-        transition: opacity 5s;
+        transition: opacity 0.7s;
     }
 }
 .card>.section.no-padding {
@@ -33,14 +37,6 @@
     }
 }
 
-.modal.hidden {
-    display: none;
-}
-
-.modal.shown {
-    display: block;
-}
-
 .header {
     .modal-title {
         display: inline;
@@ -51,4 +47,42 @@
     &:after {
         clear: both;
     }
+}
+
+.modal-arrow {
+    &:before {
+        content: '';
+        background: transparent;
+        border: var(--universal-margin) solid transparent;
+        position: absolute;
+        bottom: 40%;
+        left: -8px;
+        z-index: 1;
+        border-right-color: #212121;
+        border-top-color: rgba(0,0,0,0);
+        transition: opacity 0.7s;
+        clip: auto;
+        clip-path: inset(0%);
+    }
+}
+
+.modal {
+    .card {
+        box-shadow: var(--card-box-shadow);
+    }
+    .section {
+        label {
+            line-height: 36px;
+            padding: 0;
+        }
+    }
+}
+
+.toast {
+    height: 1.5em;
+    opacity: 0.7;
+}
+
+.toast.error {
+    background-color: red;
 }

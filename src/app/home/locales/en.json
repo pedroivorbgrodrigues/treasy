@@ -1,5 +1,14 @@
 {
-  "button": "Show Sample Constant",
-  "details": "Details here:",
-  "greeting": "It works!"
+  "productsTreeTitle": "Products",
+  "productsFilterInputPlaceholder": "Type the code or description of a product or category",
+  "newProductNodeTitle": "Add new Product/Category",
+  "newProductIdLabel": "Unique code",
+  "newProductIdPlaceholder": "bermas01, calca02",
+  "newProductDescriptionLabel": "Description",
+  "newProductDescriptionPlaceholder": "Bermuda azul, calças",
+  "newProductAditionalInfoLabel": "Aditional info",
+  "newProductAditionalInfoPlaceholder": "Bermuda jeans azul escuro, 100% algodão",
+  "newProductButtonCreate": "Create",
+  "editErrorNoNodeSelected": "Select a node first in order to edit"
+
 }

@@ -3,13 +3,14 @@
     padding-left: var(--universal-margin);
 }
 
-.node-link {
-    cursor: pointer;
-}
+// .node-link {
+//     cursor: pointer;
+// }
 
 .tree-node {
     line-height: 1;
     .node-content {
+        cursor: pointer;
         &:before {
             box-sizing: border-box;
             content: '';
@@ -44,14 +45,19 @@
 }
 .node-content:hover {
     &:before {
-        background: rgba(43, 129, 137, 0.3)
+        // background: rgba(43, 129, 137, 0.3)
+        border: 1px solid var(--card-border-color);
+        // box-shadow: var(--hover-box-shadow);
     }
 }
 
 .node-content.selected {
-    &:before {
-        background: rgba(13, 66, 87, 0.3)
-    }
+    font-weight: bold;
+    // &:before {
+    //     background: rgba(13, 66, 87, 0.3);
+    //     box-shadow: var(--hover-box-shadow);        
+    //     border: 1px solid var(--card-border-color);
+    // }
 }
 
 

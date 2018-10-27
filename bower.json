@@ -49,6 +49,7 @@
     "angular-ui-router": "^1.0.20",
     "normalize-css": "^8.0.0",
     "mini.css": "^3.0.0",
-    "angular-animate": "^1.7.5"
+    "angular-animate": "^1.7.5",
+    "popper.js": "^1.14.4"
   }
 }
